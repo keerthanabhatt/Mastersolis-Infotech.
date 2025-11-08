@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mastersolis Infotech | About</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #002b80, #f5c400);
+      color: white;
+    }
+
+    /* NAVBAR (same as Projects Page) */
+    .navbar {
+      background: linear-gradient(90deg, rgba(0, 0, 80, 0.9), rgba(255, 200, 0, 0.9));
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    /* MAIN CONTENT */
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      text-align: center;
+      animation: fadeInUp 1.2s ease;
+    }
+
+    .mission-vision {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      flex: 1;
+      min-width: 300px;
+      max-width: 45%;
+      border-radius: 15px;
+      padding: 25px;
+      transition: 0.3s;
+      border: 1px solid rgba(255, 235, 59, 0.5);
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .card h2 {
+      color: #ffeb3b;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ffeb3b;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 25px rgba(255, 255, 0, 0.4);
+    }
+
+    .values {
+      margin-top: 40px;
+      background: rgba(0, 0, 80, 0.3);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .values h2 {
+      color: #ffeb3b;
+      margin-bottom: 15px;
+      text-shadow: 0 0 10px #ffeb3b;
+    }
+
+    .values ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .values li {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 500;
+      border: 1px solid rgba(255, 235, 59, 0.4);
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .values li:hover {
+      background: rgba(255, 235, 59, 0.2);
+      box-shadow: 0 0 10px rgba(255, 235, 59, 0.3);
+    }
+
+    .team, .milestones {
+      margin-top: 60px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .team h2, .milestones h2 {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #ffeb3b;
+      margin-bottom: 20px;
+    }
+
+    .team-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .team-member {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid rgba(255, 235, 59, 0.4);
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(255, 255, 0, 0.5);
+    }
+
+    .team-member h3 {
+      margin-bottom: 10px;
+      color: #ffeb3b;
+    }
+
+    .milestones li {
+      margin-bottom: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px 15px;
+      border-radius: 8px;
+      border-left: 3px solid #ffeb3b;
+      text-align: left;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(0, 0, 80, 0.8);
+      color: #fff;
+      font-size: 0.9em;
+      margin-top: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="resume-filter.html" class="active">Resume Filter</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <div class="mission-vision">
+      <div class="card">
+        <h2>Our Mission</h2>
+        <p>At Mastersolis Infotech, our mission is to revolutionize industries through cutting-edge AI solutions that blend human creativity with technological intelligence. We aim to empower startups and enterprises to reach new heights of efficiency, accuracy, and innovation.</p>
+      </div>
+
+      <div class="card">
+        <h2>Our Vision</h2>
+        <p>We envision a world where artificial intelligence is seamlessly integrated into everyday life—driving sustainable growth, bridging global gaps, and redefining what’s possible through technology that learns and evolves with humanity.</p>
+      </div>
+    </div>
+
+    <div class="values">
+      <h2>Our Core Values</h2>
+      <ul>
+        <li>Integrity & Transparency</li>
+        <li>Innovation & Curiosity</li>
+        <li>Customer Commitment</li>
+        <li>Teamwork & Respect</li>
+        <li>Ethical AI Practices</li>
+        <li>Excellence in Delivery</li>
+      </ul>
+    </div>
+
+    <div class="team">
+      <h2>Meet Our Team</h2>
+      <div class="team-container">
+        <div class="team-member">
+          <h3>Riya Sharma</h3>
+          <p>CEO & Founder — Driving the company’s strategic vision and innovation roadmap.</p>
+        </div>
+        <div class="team-member">
+          <h3>Arjun Patel</h3>
+          <p>CTO — Architecting AI frameworks and leading research in next-gen technologies.</p>
+        </div>
+        <div class="team-member">
+          <h3>Sneha Nair</h3>
+          <p>Head of Design — Creating human-centered interfaces with futuristic aesthetics.</p>
+        </div>
+        <div class="team-member">
+          <h3>Rahul Mehta</h3>
+          <p>Project Manager — Coordinating development cycles and ensuring global project success.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="milestones">
+      <h2>Company Milestones</h2>
+      <ul>
+        <li><strong>2020:</strong> Founded Mastersolis Infotech — a spark that started with 3 innovators.</li>
+        <li><strong>2021:</strong> Launched our first AI-based analytics engine for startups.</li>
+        <li><strong>2022:</strong> Partnered with Fortune 500 clients across 10+ countries.</li>
+        <li><strong>2023:</strong> Recognized among “Top 10 AI Innovators in Asia”.</li>
+        <li><strong>2024:</strong> Expanded into robotics and automation research labs.</li>
+        <li><strong>2025:</strong> Introduced Mastersolis AI Cloud and education partnerships.</li>
+      </ul>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Mastersolis Infotech | Designed with ❤️ by AI</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastersolis Infotech | Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0a0f3c, #f8c930);
+      color: white;
+      margin: 0;
+    }
+
+    /* NAVBAR */
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #ffe680;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      max-width: 1000px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.15);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+
+    .contact-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .contact-card {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-5px);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .contact-card h3 {
+      color: #ffd700;
+    }
+
+    .contact-card i {
+      font-size: 30px;
+      color: #dfe8eb;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    input, textarea, button {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+
+    input, textarea {
+      background: rgba(0, 0, 0, 0.2);
+      color: white;
+    }
+
+    button {
+      background: #ffd700;
+      color: black;
+      cursor: pointer;
+      font-weight: bold;
+      border: none;
+    }
+
+    button:hover {
+      background: #ffcc00;
+    }
+
+    .message {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+  </style>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Careers.html">Careers</a></li>
+      <li><a href="resume-filter.html" class="active">Resume Filter</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact-section">
+    <h2>Contact Mastersolis Infotech</h2>
+    
+    <div class="contact-grid">
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Bangalore Office</h3>
+        <p>#21, Tech Park Road, Whitefield, Bangalore, Karnataka - 560066</p>
+        <p><strong>Email:</strong> blr@mastersolis.ai</p>
+        <p><strong>Phone:</strong> +91 98765 32100</p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Mumbai Office</h3>
+        <p>Level 5, Innovate Tower, Bandra Kurla Complex, Mumbai, Maharashtra - 400051</p>
+        <p><strong>Email:</strong> mumbai@mastersolis.ai</p>
+        <p><strong>Phone:</strong> +91 97654 21098</p>
+      </div>
+
+      <div class="contact-card">
+        <i class="fas fa-map-marker-alt"></i>
+        <h3>Hyderabad Office</h3>
+        <p>Plot 17, AI City, Gachibowli, Hyderabad, Telangana - 500032</p>
+        <p><strong>Email:</strong> hyd@mastersolis.ai</p>
+        <p><strong>Phone:</strong> +91 91234 56789</p>
+      </div>
+    </div>
+
+    <!-- CONTACT FORM -->
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" rows="4" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+    <div class="message" id="responseMsg"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>© 2025 Mastersolis Infotech | Designed by AI</footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+
+      // Simulated AI-generated auto-reply
+      const aiResponse = `Hello ${name}, thank you for reaching out to Mastersolis Infotech! 
+      Our AI assistant has received your message and will respond shortly.`;
+
+      document.getElementById("responseMsg").textContent = aiResponse;
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+</body>
+</html>

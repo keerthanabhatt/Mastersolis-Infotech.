@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastersolis Infotech | Blog</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      background: linear-gradient(to bottom right, #0a0f3c, #f8c930);
+    }
+
+    /* NAVBAR */
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      background: rgba(0,0,0,0.5);
+      padding: 10px 0;
+      margin: 0;
+    }
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    .navbar a.active, .navbar a:hover {
+      color: #ffd700;
+    }
+
+    /* BLOG SECTION */
+    .blog-section {
+      padding: 40px;
+      text-align: center;
+    }
+    .blog-section h1 {
+      color: #ffd700;
+      margin-bottom: 20px;
+    }
+
+    .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .blog-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: left;
+      transition: transform 0.3s;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.03);
+    }
+
+    .blog-card h3 {
+      color: #ffd700;
+    }
+
+    .blog-card p {
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .summarize-btn {
+      background: #ffd700;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .summarize-btn:hover {
+      background: #ffcc00;
+    }
+
+    .summary-box {
+      background: rgba(255,255,255,0.15);
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 8px;
+      display: none;
+      font-style: italic;
+      color: #fffacd;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="resume-filter.html" class="active">Resume Filter</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- BLOG SECTION -->
+  <section class="blog-section">
+    <h1>Mastersolis Blog & News 📰</h1>
+    <p>Stay updated with the latest AI trends, company updates, and success stories.</p>
+
+    <div class="blog-container">
+      <!-- Blog 1 -->
+      <div class="blog-card">
+        <h3>AI Revolution in 2025</h3>
+        <p id="post1">Artificial Intelligence continues to reshape industries in 2025. From predictive analytics to 
+        generative design, AI helps businesses make data-driven decisions faster. Mastersolis Infotech 
+        leads this transformation by creating real-world AI tools that power innovation and sustainability.</p>
+        <button class="summarize-btn" onclick="summarize('post1', 'summary1')">AI Summarize</button>
+        <div class="summary-box" id="summary1"></div>
+      </div>
+
+      <!-- Blog 2 -->
+      <div class="blog-card">
+        <h3>Smart Web Solutions</h3>
+        <p id="post2">Web development has evolved beyond static pages. Using machine learning and intelligent 
+        automation, websites can now personalize user experiences dynamically. Mastersolis integrates 
+        smart web systems that respond intelligently to every visitor’s behavior and needs.</p>
+        <button class="summarize-btn" onclick="summarize('post2', 'summary2')">AI Summarize</button>
+        <div class="summary-box" id="summary2"></div>
+      </div>
+
+      <!-- Blog 3 -->
+      <div class="blog-card">
+        <h3>Securing the Future with Cloud AI</h3>
+        <p id="post3">Cloud computing and AI are merging to offer smarter, faster, and more secure systems. 
+        Our AI-enhanced cloud infrastructure detects anomalies, predicts issues, and self-heals 
+        in real time, creating the next generation of secure digital environments.</p>
+        <button class="summarize-btn" onclick="summarize('post3', 'summary3')">AI Summarize</button>
+        <div class="summary-box" id="summary3"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Mastersolis Infotech | Blog powered by AI
+  </footer>
+
+  <script>
+    function summarize(postId, summaryId) {
+      const postText = document.getElementById(postId).innerText;
+      const summaryBox = document.getElementById(summaryId);
+
+      // Simple AI-like summarizer logic
+      const words = postText.split(' ');
+      const shortSummary = words.slice(0, 25).join(' ') + '...';
+      
+      summaryBox.innerText = "🤖 AI Summary: " + shortSummary;
+      summaryBox.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

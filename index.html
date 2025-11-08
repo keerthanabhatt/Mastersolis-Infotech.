@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastersolis Infotech | Home</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Consistent Navbar Styling (copied from Projects page) */
+    .navbar {
+      background: linear-gradient(90deg, rgba(0, 0, 80, 0.9), rgba(255, 200, 0, 0.9));
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Careers.html">Careers</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" style="background-image: url('c1.jpg');">
+    <div class="hero-content">
+      <h1>Welcome to Mastersolis Infotech</h1>
+      <p>"Mastersolis — Where human creativity meets artificial intelligence."</p>
+      <div class="dynamic-text" id="dynamicText">AI is Vision</div>
+    </div>
+  </section>
+
+  <!-- SERVICE HIGHLIGHTS -->
+  <section class="services-highlight">
+    <h2>Our Core Services</h2>
+    <div class="service-cards">
+      <div class="card">
+        <h3>AI Solutions</h3>
+        <p>We design intelligent systems that learn, adapt, and evolve with your business.</p>
+      </div>
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Custom-built websites and web apps that deliver performance and elegance.</p>
+      </div>
+      <div class="card">
+        <h3>Data Analytics</h3>
+        <p>Unlock insights from your data with advanced AI-driven analytics.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial">
+        <p>"Mastersolis transformed our vision into a real product. Their AI expertise is unmatched!"</p>
+        <h4>- Priya Sharma, CEO of TechNova</h4>
+      </div>
+      <div class="testimonial">
+        <p>"Professional, creative, and highly responsive — the best tech partner we’ve had."</p>
+        <h4>- Rahul Mehta, Startup Founder</h4>
+      </div>
+      <div class="testimonial">
+        <p>"They bring AI to life in a way that’s both innovative and practical. Highly recommend!"</p>
+        <h4>- Sneha Verma, Business Analyst</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Mastersolis Infotech | Designed by AI
+  </footer>
+
+  <script>
+    // Dynamic Text
+    const phrases = [
+      "AI is Vision",
+      "AI is the Future",
+      "AI Empowers Innovation",
+      "AI Drives Change",
+      "AI Creates Possibilities"
+    ];
+
+    let index = 0;
+    const dynamicText = document.getElementById("dynamicText");
+
+    setInterval(() => {
+      index = (index + 1) % phrases.length;
+      dynamicText.style.opacity = 0;
+      setTimeout(() => {
+        dynamicText.textContent = phrases[index];
+        dynamicText.style.opacity = 1;
+      }, 500);
+    }, 3000);
+  </script>
+
+</body>
+</html>

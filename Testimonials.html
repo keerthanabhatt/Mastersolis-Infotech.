@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mastersolis Infotech | Resume Filter</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #001f3f, #ffd700);
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar h2 {
+      color: #ffd700;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .navbar a.active, .navbar a:hover {
+      color: #ffd700;
+    }
+
+    .resume-filter {
+      padding: 60px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .resume-filter h2 {
+      color: #ffd700;
+    }
+
+    .resume-upload {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    input[type="file"] {
+      padding: 10px;
+      border-radius: 5px;
+      background: white;
+      color: #001f3f;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    button {
+      background: #ffd700;
+      color: #001f3f;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #e5c100;
+    }
+
+    .result {
+      background: rgba(255, 255, 255, 0.15);
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+    }
+
+    .no-file {
+      color: #ff4d4d;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      border-radius: 5px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.8);
+      color: #ffd700;
+      padding: 20px;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2>Mastersolis Infotech</h2>
+    <ul>
+     <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Careers.html">Careers</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <section class="resume-filter">
+    <h2>AI Resume Filtering Tool</h2>
+    <div class="resume-upload">
+      <p>Upload candidate resumes to analyze and extract skills, experience, and education details.</p>
+      <input type="file" id="resumeInput" accept=".pdf, .doc, .docx" />
+      <br />
+      <button onclick="analyzeResume()">Analyze Resume</button>
+
+      <div id="noFileMsg" class="no-file" style="display:none;">
+        ⚠️ No resume uploaded! Please select a file before analysis.
+      </div>
+
+      <div id="result" class="result" style="display:none;">
+        <h3>Extracted Candidate Information:</h3>
+        <p><strong>Name:</strong> <span id="name">—</span></p>
+        <p><strong>Skills:</strong> <span id="skills">—</span></p>
+        <p><strong>Experience:</strong> <span id="experience">—</span></p>
+        <p><strong>Education:</strong> <span id="education">—</span></p>
+        <p><strong>AI Job Fit Score:</strong> <span id="score">—</span></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Mastersolis Infotech | AI Resume Analyzer
+  </footer>
+
+  <script>
+    function analyzeResume() {
+      const fileInput = document.getElementById("resumeInput");
+      const resultDiv = document.getElementById("result");
+      const noFileMsg = document.getElementById("noFileMsg");
+
+      // Check if any file is uploaded
+      if (!fileInput.files.length) {
+        resultDiv.style.display = "none";
+        noFileMsg.style.display = "inline-block";
+        return;
+      }
+
+      noFileMsg.style.display = "none";
+
+      // Mock AI extracted details
+      document.getElementById("name").textContent = "Riya Verma";
+      document.getElementById("skills").textContent = "Python, Machine Learning, Data Analytics, Cloud Computing";
+      document.getElementById("experience").textContent = "3 Years at Infosys as Data Analyst";
+      document.getElementById("education").textContent = "B.Tech in Computer Science, VTU";
+      document.getElementById("score").textContent = "92% (Excellent Fit)";
+      resultDiv.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

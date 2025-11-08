@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastersolis Infotech |Progects</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #002b80, #f5c400);
+      color: white;
+    }
+
+    /* Navbar (consistent with About page) */
+    .navbar {
+      background: linear-gradient(90deg, rgba(0, 0, 80, 0.9), rgba(255, 200, 0, 0.9));
+      padding: 15px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .navbar ul li a:hover,
+    .navbar ul li a.active {
+      color: #ffeb3b;
+      text-shadow: 0 0 10px #fff;
+    }
+
+    /* Filter Section */
+    .filter-section {
+      text-align: center;
+      margin-top: 40px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .filter-section h2 {
+      font-size: 2.2em;
+      color: #fff;
+      text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    }
+
+    .filter-section p {
+      font-size: 1.1em;
+      color: #f0f0f0;
+      margin-bottom: 15px;
+    }
+
+    .filter-buttons button {
+      background: #ffeb3b;
+      color: #000;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      margin: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .filter-buttons button:hover {
+      background: #ffd000;
+      transform: scale(1.05);
+    }
+
+    /* Project Grid */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      padding: 40px 60px;
+      animation: fadeInUp 1.5s ease;
+    }
+
+    .project-card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      transition: transform 0.3s, background 0.3s;
+      backdrop-filter: blur(5px);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .project-card i {
+      font-size: 48px;
+      margin-bottom: 15px;
+      color: #ffeb3b;
+      text-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+    }
+
+    .project-card h3 {
+      font-size: 1.4em;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .project-card p {
+      font-size: 0.95em;
+      color: #f2f2f2;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: rgba(0, 0, 80, 0.8);
+      color: #fff;
+      font-size: 0.9em;
+      margin-top: 40px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="Careers.html">Careers</a></li>
+      <li><a href="resume-filter.html" class="active">Resume Filter</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="Contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- FILTER SECTION -->
+  <section class="filter-section">
+    <h2>Our Project Portfolio</h2>
+    <p>Explore our AI, Web, and Data-driven projects. Use the filter buttons to explore specific categories.</p>
+    <div class="filter-buttons">
+      <button onclick="filterProjects('all')">All</button>
+      <button onclick="filterProjects('ai')">AI Projects</button>
+      <button onclick="filterProjects('web')">Web Projects</button>
+      <button onclick="filterProjects('data')">Data Projects</button>
+    </div>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="project-grid" id="projectGrid">
+    <div class="project-card" data-category="ai">
+      <i class="ri-brain-line"></i>
+      <h3>AI Chat Assistant</h3>
+      <p>A conversational chatbot that automates customer support using NLP and machine learning.</p>
+    </div>
+
+    <div class="project-card" data-category="web">
+      <i class="ri-global-line"></i>
+      <h3>Company Website Redesign</h3>
+      <p>Modern, responsive website built using HTML, CSS, and React for improved engagement.</p>
+    </div>
+
+    <div class="project-card" data-category="data">
+      <i class="ri-bar-chart-2-line"></i>
+      <h3>Sales Data Dashboard</h3>
+      <p>Interactive dashboards powered by real-time data analytics and visual insights.</p>
+    </div>
+
+    <div class="project-card" data-category="ai">
+      <i class="ri-robot-2-line"></i>
+      <h3>Predictive Maintenance System</h3>
+      <p>AI-based system predicting equipment failures before they happen, reducing downtime.</p>
+    </div>
+
+    <div class="project-card" data-category="web">
+      <i class="ri-layout-4-line"></i>
+      <h3>E-Commerce Platform</h3>
+      <p>Scalable, secure online store built with Node.js and MongoDB backend.</p>
+    </div>
+
+    <div class="project-card" data-category="data">
+      <i class="ri-database-2-line"></i>
+      <h3>Customer Insight Engine</h3>
+      <p>Data-driven insights platform that helps businesses understand customer behavior patterns.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Mastersolis Infotech | Designed with ❤️ by AI
+  </footer>
+
+  <!-- FILTER SCRIPT -->
+  <script>
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

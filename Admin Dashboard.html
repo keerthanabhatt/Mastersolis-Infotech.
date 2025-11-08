@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mastersolis Infotech | Admindashboard</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom right, #0a0f3c, #f8c930);
+      color: white;
+      margin: 0;
+    }
+
+    /* NAVBAR */
+    .navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    .navbar a:hover, .navbar a.active {
+      color: #ffe680;
+    }
+
+    /* LOGIN PANEL */
+    .login-container {
+      max-width: 400px;
+      margin: 60px auto;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    }
+    .login-container input {
+      width: 90%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.2);
+      color: white;
+    }
+    .login-container button {
+      background: #ffd700;
+      color: black;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .login-container button:hover {
+      background: #ffcc00;
+    }
+
+    /* DASHBOARD */
+    .dashboard {
+      display: none;
+      padding: 30px;
+      text-align: center;
+    }
+    .dashboard h2 {
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      background: rgba(0,0,0,0.6);
+      transform: scale(1.03);
+    }
+
+    .card h3 {
+      color: #ffd700;
+    }
+
+    /* AI Summary */
+    .ai-summary {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.15);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(0,0,0,0.5);
+      margin-top: 60px;
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+      <li><a href="admindashboard.html" class="active">Admindashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- LOGIN -->
+  <div class="login-container" id="loginContainer">
+    <h2>Admin Login</h2>
+    <input type="text" id="adminUser" placeholder="Username">
+    <input type="password" id="adminPass" placeholder="Password">
+    <button onclick="login()">Login</button>
+    <p id="loginMsg"></p>
+  </div>
+
+  <!-- DASHBOARD -->
+  <div class="dashboard" id="dashboard">
+    <h2>Welcome, Admin 👩‍💻</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Total Applicants</h3>
+        <p id="applicantsCount">64</p>
+      </div>
+      <div class="card">
+        <h3>Shortlisted</h3>
+        <p id="shortlistedCount">23</p>
+      </div>
+      <div class="card">
+        <h3>Pending Reviews</h3>
+        <p id="pendingCount">12</p>
+      </div>
+      <div class="card">
+        <h3>Messages Received</h3>
+        <p id="messagesCount">35</p>
+      </div>
+    </div>
+
+    <!-- AI Insight -->
+    <div class="ai-summary" id="aiSummary">
+      <h3>🤖 AI Insight Summary</h3>
+      <p>Analysing data...</p>
+    </div>
+  </div>
+
+  <footer>© 2025 Mastersolis Infotech | Admin Dashboard Powered by AI</footer>
+
+  <script>
+    function login() {
+      const user = document.getElementById("adminUser").value;
+      const pass = document.getElementById("adminPass").value;
+      const msg = document.getElementById("loginMsg");
+
+      if (user === "admin" && pass === "1234") {
+        msg.textContent = "Login successful!";
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+        generateAISummary();
+      } else {
+        msg.textContent = "Invalid credentials. Try admin / 1234.";
+      }
+    }
+
+    function generateAISummary() {
+      const summary = document.getElementById("aiSummary");
+      const total = parseInt(document.getElementById("applicantsCount").textContent);
+      const shortlisted = parseInt(document.getElementById("shortlistedCount").textContent);
+      const pending = parseInt(document.getElementById("pendingCount").textContent);
+      const messages = parseInt(document.getElementById("messagesCount").textContent);
+
+      const efficiency = Math.round((shortlisted / total) * 100);
+      const responseTime = (Math.random() * 2 + 1).toFixed(1);
+      const mood = efficiency > 60 ? "positive growth 📈" : "needs improvement ⚙️";
+
+      summary.innerHTML = `
+        <h3>🤖 AI Insight Summary</h3>
+        <p><strong>Hiring Efficiency:</strong> ${efficiency}%</p>
+        <p><strong>Average Response Time:</strong> ${responseTime} hours</p>
+        <p><strong>AI Suggestion:</strong> Focus on candidate engagement to improve efficiency.</p>
+        <p><strong>Overall Mood:</strong> ${mood}</p>
+      `;
+    }
+  </script>
+</body>
+</html>

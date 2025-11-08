@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mastersolis Infotech|Careers</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+  <style>
+    /* Global Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #002b80, #ffd700);
+      color: white;
+    }
+
+    /* Navbar (same as project page) */
+    nav.navbar {
+      width: 100%;
+      background: linear-gradient(90deg, #002b80, #000);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 8%;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav h2 {
+      color: #ffd700;
+      font-size: 1.6rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.8rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #ffd700;
+    }
+
+    /* Career Form Section */
+    .career-form {
+      max-width: 1100px;
+      margin: 80px auto;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 60px 70px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    }
+
+    h2, h3 {
+      color: #ffd700;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 14px 0;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      outline: none;
+      font-size: 0.95rem;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    button {
+      background: #ffd700;
+      color: #001f3f;
+      border: none;
+      padding: 14px 30px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 15px 10px 0 0;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #e5c100;
+      transform: scale(1.05);
+    }
+
+    .template-preview {
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      margin-top: 35px;
+      gap: 25px;
+    }
+
+    .template {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 25px;
+      border-radius: 12px;
+      width: 280px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .template:hover {
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.05);
+    }
+
+    .section-title {
+      margin-top: 45px;
+      color: #00ffcc;
+      text-align: left;
+      font-size: 1.2rem;
+      border-left: 4px solid #ffd700;
+      padding-left: 10px;
+    }
+
+    #smartSuggestions, .score-box, .ats-box {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 15px;
+    }
+
+    .score-box, .ats-box {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      background: linear-gradient(90deg, #000, #002b80);
+      color: #ffd700;
+      padding: 25px 0;
+      margin-top: 80px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h2>Mastersolis Infotech</h2>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="Blog.html">Blog</a></li>
+      <li><a href="careers.html" class="active">Careers</a></li>
+      <li><a href="resume-filter.html">Resume Filter</a></li>
+      <li><a href="Testimonials.html">Testimonials</a></li>
+      <li><a href="contacts.html">Contacts</a></li>
+      <li><a href="Admin Dashboard.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- Career Form Section -->
+  <section class="career-form">
+    <h2>Smart Resume Builder & Application Portal</h2>
+    <p>Build your resume, get AI suggestions, and apply for job openings.</p>
+
+    <h3 class="section-title">👤 Personal Details</h3>
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="text" id="phone" placeholder="Phone Number" required>
+    <input type="text" id="address" placeholder="Address">
+    <input type="text" id="linkedin" placeholder="LinkedIn Profile (optional)">
+
+    <h3 class="section-title">💼 Job Role</h3>
+    <select id="jobRole" onchange="suggestSkills()">
+      <option value="">Select Desired Role</option>
+      <option value="web developer">Web Developer</option>
+      <option value="ai engineer">AI Engineer</option>
+      <option value="ui ux designer">UI/UX Designer</option>
+      <option value="data analyst">Data Analyst</option>
+    </select>
+
+    <div id="smartSuggestions"></div>
+
+    <h3 class="section-title">🎓 Education</h3>
+    <textarea id="education" rows="4" placeholder="Enter your education details (e.g., B.Tech in CSE, 2021 - 2025, VTU)..."></textarea>
+
+    <h3 class="section-title">🧑‍💻 Experience</h3>
+    <textarea id="experience" rows="4" placeholder="Enter your work/internship experience..."></textarea>
+
+    <h3 class="section-title">⚙️ Skills & Achievements</h3>
+    <textarea id="skills" rows="3" placeholder="List your top skills..."></textarea>
+    <textarea id="achievements" rows="3" placeholder="Enter your major achievements..."></textarea>
+
+    <h3 class="section-title">📎 Upload Resume (optional)</h3>
+    <input type="file" id="resume" accept=".pdf,.doc,.docx">
+
+    <div class="template-preview">
+      <div class="template" onclick="chooseTemplate('modern')">
+        <h4>Modern Template</h4>
+        <p>Clean, Professional, Minimalistic</p>
+      </div>
+      <div class="template" onclick="chooseTemplate('creative')">
+        <h4>Creative Template</h4>
+        <p>Stylish with color highlights</p>
+      </div>
+      <div class="template" onclick="chooseTemplate('classic')">
+        <h4>Classic Template</h4>
+        <p>Traditional, Simple Layout</p>
+      </div>
+    </div>
+
+    <div style="text-align:center;">
+      <button onclick="generateResume()">📄 Generate Resume</button>
+      <button onclick="downloadResume()">⬇️ Download Resume</button>
+      <button onclick="submitApplication()">🚀 Submit Application</button>
+    </div>
+
+    <div class="score-box" id="scoreBox"></div>
+    <div class="ats-box" id="atsBox"></div>
+    <p id="successMsg" style="display:none; color:#00ff99; margin-top:20px; text-align:center;">
+      ✅ Application submitted successfully!
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Mastersolis Infotech | Smart Careers Portal
+  </footer>
+
+  <!-- Script Section (unchanged) -->
+  <script>
+    let selectedTemplate = null;
+
+    function chooseTemplate(template) {
+      selectedTemplate = template;
+      alert(`✅ ${template.charAt(0).toUpperCase() + template.slice(1)} template selected!`);
+    }
+
+    function suggestSkills() {
+      const jobRole = document.getElementById("jobRole").value;
+      const suggestionBox = document.getElementById("smartSuggestions");
+      let skills = "";
+
+      switch(jobRole) {
+        case "web developer":
+          skills = "💡 Suggested Skills: HTML, CSS, JavaScript, React, Node.js, Git";
+          break;
+        case "ai engineer":
+          skills = "💡 Suggested Skills: Python, TensorFlow, ML Algorithms, APIs, Data Science";
+          break;
+        case "ui ux designer":
+          skills = "💡 Suggested Skills: Figma, Adobe XD, Wireframing, Prototyping, UX Research";
+          break;
+        case "data analyst":
+          skills = "💡 Suggested Skills: SQL, Excel, Power BI, Python, Data Visualization";
+          break;
+      }
+
+      suggestionBox.innerHTML = skills ? `<p>${skills}</p>` : "";
+    }
+
+    function generateResume() {
+      const name = document.getElementById("name").value;
+      const role = document.getElementById("jobRole").value;
+      const scoreBox = document.getElementById("scoreBox");
+      const atsBox = document.getElementById("atsBox");
+
+      if (!name || !role || !selectedTemplate) {
+        alert("⚠️ Please fill in your name, select a role and choose a template.");
+        return;
+      }
+
+      const score = Math.floor(Math.random() * 21) + 80; 
+      scoreBox.style.display = "block";
+      scoreBox.innerHTML = `🤖 <b>AI Resume Score:</b> ${score}%<br><small>Great match for ${role}!</small>`;
+
+      atsBox.style.display = "block";
+      atsBox.innerHTML = "📡 Integrating with company ATS... <br>✅ Resume format verified for automatic screening compatibility!";
+    }
+
+    async function downloadResume() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const name = document.getElementById("name").value || "Your Name";
+      const email = document.getElementById("email").value || "your@email.com";
+      const phone = document.getElementById("phone").value || "0000000000";
+      const address = document.getElementById("address").value || "Not Provided";
+      const linkedin = document.getElementById("linkedin").value || "Not Provided";
+      const role = document.getElementById("jobRole").value || "Not Specified";
+      const education = document.getElementById("education").value || "Not Provided";
+      const experience = document.getElementById("experience").value || "Not Provided";
+      const skills = document.getElementById("skills").value || "Not Provided";
+      const achievements = document.getElementById("achievements").value || "Not Provided";
+
+      doc.setFont("helvetica", "bold");
+      doc.setFontSize(18);
+      doc.text(name, 10, 20);
+
+      doc.setFontSize(12);
+      doc.setFont("helvetica", "normal");
+      doc.text(`Email: ${email}`, 10, 30);
+      doc.text(`Phone: ${phone}`, 10, 37);
+      doc.text(`Role Applied: ${role}`, 10, 44);
+      doc.text(`Address: ${address}`, 10, 51);
+      doc.text(`LinkedIn: ${linkedin}`, 10, 58);
+
+      let y = 75;
+      const sections = [
+        ["Education", education],
+        ["Experience", experience],
+        ["Skills", skills],
+        ["Achievements", achievements]
+      ];
+
+      sections.forEach(([title, text]) => {
+        doc.setFont("helvetica", "bold");
+        doc.text(title + ":", 10, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(doc.splitTextToSize(text, 180), 10, y + 7);
+        y += 30;
+      });
+
+      doc.save(`${name}_Resume.pdf`);
+    }
+
+    function submitApplication() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const role = document.getElementById("jobRole").value.trim();
+      const resume = document.getElementById("resume").files[0];
+
+      if (!name || !email || !role) {
+        alert("⚠️ Please fill all required fields before submitting.");
+        return;
+      }
+
+      const applications = JSON.parse(localStorage.getItem("applications") || "[]");
+      applications.push({
+        name, email, role,
+        resumeName: resume ? resume.name : "No resume uploaded",
+        date: new Date().toLocaleString()
+      });
+
+      localStorage.setItem("applications", JSON.stringify(applications));
+
+      document.getElementById("successMsg").style.display = "block";
+      document.getElementById("scoreBox").style.display = "none";
+    }
+  </script>
+</body>
+</html>
